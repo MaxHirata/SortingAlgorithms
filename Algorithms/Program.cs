@@ -184,15 +184,99 @@ namespace Algorithms
 
             if(low < high)
             {
-                // pi is partitioning index, arr[pi] is now at right place
-                int pi = partition(arr, low, high);
+                // pivot is partitioning index, arr[pi] is now at right place
+                int pivot = partition(arr, low, high);
 
                 // Recursively sort elements before partition and after partition
-                quickSort(arr, low, pi - 1);
-                quickSort(arr, pi + 1, high);
+                quickSort(arr, low, pivot - 1);
+                quickSort(arr, pivot + 1, high);
             }
 
         }
+
+        void merge(int[] arr, int left, int right, int middle)
+        {
+            int n1 = middle - left + 1;
+            int n2 = right - middle;
+
+            int i = 0;
+            int j = 0;
+
+            //temp store arrays
+            int[] L = new int[n1];
+            int[] R = new int[n2];
+
+            for(i = 0; i < n1; i++)
+                L[i] = arr[left + 1];
+
+
+            for (j = 0; j < n2; j++)
+                R[j] = arr[middle + 1 + j];
+
+            i = 0;
+            j = 0;
+            int k = left;
+
+            while((i < n1) && (j < n2))
+            {
+                if(L[i] <= R[j])
+                {
+                    arr[k] = L[i];
+                    i++;
+                }
+                else
+                {
+                    arr[k] = R[j];
+                    j++;
+                }
+                k++;
+            }
+
+            //Copy remaining elements in L to array if exists
+            while(i < n1)
+            {
+                arr[k] = L[i];
+                i++;
+                k++;
+            }
+
+            //Copy remaining elements in R to array if exists
+            while(j < n2)
+            {
+                arr[k] = R[j];
+                j++;
+                k++;
+            }
+        }
+
+
+
+        static void mergeSort(int[] arr, int left, int right)
+        {
+            // Another Divide and Conquer
+
+            /*
+             * Mothod:
+             *  + Splitting Phase:
+             *      - Split the array into two equal(or nearly equal) parts.
+             *      - Conitnue splitting until each part contains only one element
+             *  + Merging Phase:
+             *      - Merge the two parts containing one element into one sorted list.
+             *      - Continue merging parts until finally there is only one list.
+             */
+
+            if( left < right)
+            {
+                int middle = (left + (right - 1)) / 2;
+
+                //Sort first and second halves
+                mergeSort(arr, left, middle);
+                mergeSort(arr, middle + 1, right);
+
+                merge(arr, left, right, middle);
+            }
+        }
+
 
 
         static void printArray(int[] arr)
