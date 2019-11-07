@@ -251,7 +251,7 @@ namespace Algorithms
 
 
 
-        static void mergeSort(int[] arr, int left, int right)
+        void mergeSort(int[] arr, int left, int right)
         {
             // Another Divide and Conquer
 
