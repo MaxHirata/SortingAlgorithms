@@ -1,0 +1,5 @@
+/Users/maxhirata/Desktop/Algorithms/Algorithms/bin/Debug/Algorithms.exe
+/Users/maxhirata/Desktop/Algorithms/Algorithms/bin/Debug/Algorithms.pdb
+/Users/maxhirata/Desktop/Algorithms/Algorithms/obj/Debug/Algorithms.csprojAssemblyReference.cache
+/Users/maxhirata/Desktop/Algorithms/Algorithms/obj/Debug/Algorithms.exe
+/Users/maxhirata/Desktop/Algorithms/Algorithms/obj/Debug/Algorithms.pdb
